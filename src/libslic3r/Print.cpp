@@ -662,7 +662,7 @@ StringObjectException Print::sequential_print_clearance_valid(const Print &print
                             intersecting_idxs.emplace_back(convex_hulls_other.size());
                         }
 
-                        if (has_exception) break;
+                    //    if (has_exception) break;
                     }
                 }
                 struct print_instance_info print_info {&instance, convex_hull.bounding_box(), convex_hull};
