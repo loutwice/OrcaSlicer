@@ -548,6 +548,7 @@ std::vector<size_t> Print::layers_sorted_for_object(float start, float end, std:
 StringObjectException Print::sequential_print_clearance_valid(const Print &print, Polygons *polygons, std::vector<std::pair<Polygon, float>>* height_polygons)
 {
     StringObjectException single_object_exception;
+    StringObjectException single_object_exception_test;	
     auto print_config = print.config();
     Pointfs excluse_area_points = print_config.bed_exclude_area.values;
     Polygons exclude_polys;
@@ -662,7 +663,7 @@ StringObjectException Print::sequential_print_clearance_valid(const Print &print
                             intersecting_idxs.emplace_back(convex_hulls_other.size());
                         }
 
-                    //    if (has_exception) break;
+                       if (has_exception) break;
                     }
                 }
                 struct print_instance_info print_info {&instance, convex_hull.bounding_box(), convex_hull};
@@ -876,8 +877,8 @@ StringObjectException Print::sequential_print_clearance_valid(const Print &print
             }
         }
     }
-
-    return single_object_exception;
+	
+    return single_object_exception_test;
 }
 
 //BBS
